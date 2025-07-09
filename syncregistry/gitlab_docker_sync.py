@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 import requests
 import docker
 import inquirer
@@ -5,13 +7,15 @@ import re
 import sys
 from typing import List, Dict
 
+
+load_dotenv()
 # Настройки
-# GITLAB_TOKEN = ""
-# GITLAB_PROJECT_ID = ""
-# GITLAB_API_URL = ""
-# GITLAB_REGISTRY = ""
-# GITLAB_NAMESPACE = ""
-# DOCKERHUB_NAMESPACE = ""
+GITLAB_TOKEN = os.environ.get('GITLAB_TOKEN')
+GITLAB_PROJECT_ID = os.environ.get('GITLAB_PROJECT_ID')
+GITLAB_API_URL = os.environ.get('GITLAB_API_URL')
+GITLAB_REGISTRY = os.environ.get('GITLAB_REGISTRY')
+GITLAB_NAMESPACE = os.environ.get('GITLAB_NAMESPACE')
+DOCKERHUB_NAMESPACE = os.environ.get('DOCKERHUB_NAMESPACE')
 
 # Инициализация клиента Docker
 docker_client = docker.from_env()
