@@ -11,7 +11,6 @@ Settings > CI/CD > Runners > Register a new runner
 ```
 helm repo add gitlab https://charts.gitlab.io
 helm repo update
-
 ```
 Выбираем версию и пулим chart для редактирования values.yml
 
@@ -19,7 +18,6 @@ helm repo update
 helm search repo -l gitlab/gitlab-runner
 
 helm pull gitlab/gitlab-runner --untar
-
 ```
 
 Создаем override-values.yaml
@@ -48,12 +46,10 @@ rbac:
 serviceAccount:
   create: true
   name: gitlab-runner
-
 ```
 
 Запускаем чарт
 
 ```
 helm install gitlab-runner -n gitlab-runner --create-namespace -f override-values.yaml gitlab/gitlab-runner
-
 ```
