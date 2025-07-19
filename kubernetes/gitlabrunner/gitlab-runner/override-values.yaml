@@ -1,0 +1,17 @@
+gitlabUrl: https://gitlab.com
+runnerToken: "glrt-hhr7FCxFeizK2sxs-ns-D286MQpwOjE0eXk1awp0OjMKdTpnNGJuYxg.01.1j19qeo35"
+runners:
+  tags: k8s-runner
+  executor: kubernetes
+  kubernetes:
+    namespace: gitlab-runner
+    image: alpine
+    cpu_limit: "1"
+    memory_limit: "1Gi"
+    
+rbac:
+  create: true
+
+serviceAccount:
+  create: true
+  name: gitlab-runner
