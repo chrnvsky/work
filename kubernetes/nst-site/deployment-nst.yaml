@@ -1,35 +1,103 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nst-site
+  name: nst-apache
+  namespace: nst-site
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      nst-site
+      app: nst-apache
   template:
     metadata:
       labels:
-        nst-site
+        app: nst-apache
     spec:
       containers:
-      - nst-site
-        image: registry.tomskasu.ru/nst-site/nst-site:latest
-        # resources:
-        #   limits:
-        #     memory: "128Mi"
-        #     cpu: "500m"
+      - name: nst-apache
+        image: registry.tomskasu.ru/nst-site/nst-site:latest 
         ports:
         - containerPort: 80
+        - containerPort: 443
+        command: ["bash", "-c", "/usr/local/bin/db-migrate.sh && apache2-foreground"]
+        volumeMounts:
+        - name: apache-data
+          mountPath: /var/www/html/storage
+        - name: env-file
+          mountPath: /var/www/html/.env
+        - name: localtime
+          mountPath: /etc/localtime
+          readOnly: true
+        - name: apache-backup
+          mountPath: /mnt/bkp
+        - name: apache-conf
+          mountPath: /etc/apache2
+        - name: apache-logs
+          mountPath: /var/log/apache2
+        - name: db-migrate-script
+          mountPath: /usr/local/bin/db-migrate.sh
+          subPath: db-migrate.sh
+        # resources:
+        #   limits:
+        #     cpu: "1.5"
+        #     memory: "1024Mi"
+        #   requests:
+        #     memory: "256Mi"
+      volumes:
+      - name: apache-data
+        persistentVolumeClaim:
+          claimName: nst-apache-data-pvc
+      - name: env-file
+        configMap:
+          name: nst-apache-env
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+          type: File
+      - name: apache-backup
+        persistentVolumeClaim:
+          claimName: nst-apache-backup-pvc
+      - name: apache-conf
+        persistentVolumeClaim:
+          claimName: nst-apache-conf-pvc
+      - name: apache-logs
+        persistentVolumeClaim:
+          claimName: nst-apache-logs-pvc
+      - name: db-migrate-script
+        configMap:
+          name: nst-apache-scripts
+          items:
+          - key: db-migrate.sh
+            path: db-migrate.sh
+      sysctls:
+      - name: net.ipv4.ip_local_port_range
+        value: "1024 65000"
+      - name: net.ipv4.conf.all.accept_redirects
+        value: "0"
+      - name: net.ipv4.conf.all.secure_redirects
+        value: "0"
+      - name: net.ipv4.conf.all.send_redirects
+        value: "0"
+      - name: net.core.somaxconn
+        value: "65535"
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nst-site
+  name: nst-apache
+  namespace: nst-site
 spec:
   selector:
-    app: nst-site
+    app: nst-apache
   ports:
-  - port: 80
-    targetPort: 8080
-
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 30443
