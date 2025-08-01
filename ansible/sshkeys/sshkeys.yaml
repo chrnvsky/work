@@ -2,16 +2,18 @@
 - name: Create user with SSH key access
   hosts: all
   become: yes
+  vars_files:
+   - accessvm.yaml
   vars:
-    username: chernyavskyda
+    username: chernyavsky
     user_password: qcdKqaM8
     ssh_public_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-    
+
   tasks:
     - name: Create user {{ username }}
       user:
         name: "{{ username }}"
-        password: "{{ user_password | password_hash('sha512') }}"
+        password: "{{ user_password }}"
         shell: /bin/bash
         create_home: yes
         home: "/home/{{ username }}"
@@ -77,12 +79,6 @@
         enabled: yes
       when: ansible_os_family == "RedHat"
 
-    - name: Test SSH key authentication
-      command: whoami
-      become_user: "{{ username }}"
-      register: test_result
-      changed_when: false
-
     - name: Display test result
       debug:
-        msg: "User {{ username }} created successfully. Test result: {{ test_result.stdout }}"
+        msg: "===== PLAYBOOK COMPLETE ====="

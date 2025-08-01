@@ -1,69 +1,70 @@
-[tap-vms1]
-192.168.30.58 ansible_user=ansible  #tap-infra-monitoring-ubu-prod
-192.168.30.22 ansible_user=ansible  #tap-infra-nexus-ubu-prod
-192.168.30.2 ansible_user=ansible   #tap-infra-reverse-proxy-rh-prod
-192.168.30.179 ansible_user=ansible #tap-infra-rocketchat-ubu-prod 
-[tap-vms2]
-192.168.31.195 ansible_user=ansible #nst-infra-owncloud-ubu-prod
-192.168.30.71 ansible_user=ansible  #nst-infra-site-ubu-prod
-192.168.30.151 ansible_user=ansible #nst-tn-cad-minio-dev-ubu-prod
-192.168.30.96 ansible_user=ansible  #tap-infra-GS-Storage-ubu-prod 
-192.168.30.189 ansible_user=ansible #tap-infra-keycloak-ubu-prod
-192.168.30.237 ansible_user=ansible #tap-infra-minio-ubu-prod
-192.168.30.86 ansible_user=ansible  #tap-infra-openvpn-rocky9-prod
-192.168.31.88 ansible_user=ansible  #tap-infra-owncloud-ubu-prod
-192.168.31.108 ansible_user=ansible #tap-infra-sonar-rh-prod
-192.168.30.53 ansible_user=ansible  #tap-infra-staff-ubu-prod
-192.168.31.187 ansible_user=ansible #tap-infra-teamcity-ubu-prod
-192.168.31.90 ansible_user=ansible  #tn-stand-cad-ubu-prod
-[tap-vms3]
-192.168.30.70 ansible_user=ansible  #iap-stand-docker-rh-prepod-dev
-192.168.30.155 ansible_user=ansible #nst-infra-atlassian-rh-prod 
-192.168.30.66 ansible_user=ansible  #tap-infra-atlassian-ubu-prod
-192.168.30.218 ansible_user=ansible #tap-infra-gitlab-ubu-prod
-[tap-vms4]
-192.168.31.203 ansible_user=ansible #iap-stand-autotests-rh-e2e
-192.168.30.231 ansible_user=ansible #nst-infra-healthnet-ubu-dev
-192.168.30.186 ansible_user=ansible #nst-infra-healthnet-ubu-prod
-192.168.30.157 ansible_user=ansible #nst-infra-moodle-ubu-dev
-192.168.30.141 ansible_user=ansible #nst-infra-site-ubu-dev 
-192.168.31.35  ansible_user=ansible #tap-infra-admintools-rh-prod
-192.168.30.97  ansible_user=ansible #tap-infra-ansible-ubu-prod
-192.168.30.170 ansible_user=ansible #tap-infra-atlassian-ubu-dev
-192.168.30.158 ansible_user=ansible #tap-infra-office-r7-ubu-dev
-192.168.30.118 ansible_user=ansible #tap-infra-staff-deb-dev 
-192.168.30.148 ansible_user=ansible #tap-infra-sync-rmpm-front-ubu-prod
-192.168.30.142 ansible_user=ansible #tap-stand-sync-ubu-dev
-192.168.30.56 ansible_user=ansible  #tn-stand-cad-ubu-dev
-192.168.30.238 ansible_user=ansible #vniir-stand-site-centos-dev
-[tap-vms6]
-192.168.30.228 ansible_user=ansible #(N)rushydro-gs-back-front-redos-clone
-192.168.30.227 ansible_user=ansible #(N)rushydro-gs-db-redos-clone
-192.168.30.127 ansible_user=ansible #nst-gs-back-front-db-redhat-prod
-192.168.30.219 ansible_user=ansible #nst-gs-back-front-db-ubuntu-e2e
-192.168.30.154 ansible_user=ansible #nst-gs-keycloak-ubu-prod
-192.168.31.45  ansible_user=ansible #nst-infra-opensearch-redhat-prod
-192.168.30.85  anisble_user=ansible #ntc-gs-db-redos-dev
-192.168.31.200 ansible_user=ansible #ntc-gs-db-redos-dev-1
-192.168.31.205 ansible_user=ansible #ntc-gs-gc-redos-dev
-192.168.31.141 ansible_user=ansible #ntc-gs-geoserver-redos-dev
-192.168.31.202 ansible_user=ansible #ntc-gs-geoserver-redos-dev-1
-192.168.31.111 ansible_user=ansible #ntc-gs-minio-redos-dev
-192.168.31.199 ansible_user=ansible #ntc-gs-minio-redos-dev-1
-192.168.30.180 ansible_user=ansible #ntc-gs-osm-redos-dev
-192.168.31.141 ansible_user=ansible #ntc-gs-osm-redos-dev-test dbSjC6FnOWb8
-192.168.31.220 ansible_user=ansible #ntc-nst-api-redos-dev
-192.168.30.225 ansible_user=ansible #ntc-nst-api-redos-preprod
-192.168.30.120 ansible_user=ansible #ntc-nst-db-redos-preprod
-192.168.31.137 ansible_user=ansible #ntc-nst-gc-redos-dev
-192.168.30.109 ansible_user=ansible #ntc-nst-gc-redos-preprod
-192.168.31.74  ansible_user=ansible #ntc-nst-geosrv-redos-preprod
-192.168.30.239 ansible_user=ansible #ntc-nst-keycloack-redos-dev
-192.168.30.139 ansible_user=ansible #ntc-nst-minio-redos-preprod
-192.168.30.116 ansible_user=ansible #ntc-nst-open-search-redos-dev
-192.168.30.206 ansible_user=ansible #ntc-nst-open-search-redos-preprod
-192.168.30.128 ansible_user=ansible #ntc-nst-web-redos-dev
-192.168.31.130 andible_user=ansible #ntc-nst-web-redos-preprod
-192.168.30.132 andible_user=ansible #rushydro-gs-back-front-redos-dev
-192.168.30.125 andible_user=ansible #rushydro-gs-db-redos-dev
-192.168.30.64  andible_user=ansible #tap-gs-back-front-db-ubuntu-prod
+[tap-vms1] 
+192.168.30.58 #tap-infra-monitoring-ubu-prod
+192.168.30.22 #tap-infra-nexus-ubu-prod
+192.168.30.2 #tap-infra-reverse-proxy-rh-prod
+192.168.30.179 #tap-infra-rocketchat-ubu-prod
+[tap-vms2] 
+192.168.31.195 #nst-infra-owncloud-ubu-prod
+192.168.30.71 #nst-infra-site-ubu-prod
+192.168.30.151 #nst-tn-cad-minio-dev-ubu-prod
+192.168.30.96 #tap-infra-GS-Storage-ubu-prod
+192.168.30.189 #tap-infra-keycloak-ubu-prod
+192.168.30.237 #tap-infra-minio-ubu-prod
+192.168.30.86 #tap-infra-openvpn-rocky9-prod
+192.168.31.88 #tap-infra-owncloud-ubu-prod
+192.168.31.108 #tap-infra-sonar-rh-prod
+192.168.30.53 #tap-infra-staff-ubu-prod
+192.168.31.187 #tap-infra-teamcity-ubu-prod
+192.168.31.90 #tn-stand-cad-ubu-prod
+[tap-vms3] 
+192.168.30.70 #iap-stand-docker-rh-prepod-dev
+192.168.30.155 #nst-infra-atlassian-rh-prod
+192.168.30.66 #tap-infra-atlassian-ubu-prod
+192.168.30.218 #tap-infra-gitlab-ubu-prod
+[tap-vms4] 
+192.168.31.203 #iap-stand-autotests-rh-e2e
+192.168.30.231 #nst-infra-healthnet-ubu-dev
+192.168.30.186 #nst-infra-healthnet-ubu-prod
+192.168.30.157 #nst-infra-moodle-ubu-dev
+192.168.30.141 #nst-infra-site-ubu-dev
+192.168.31.35 #tap-infra-admintools-rh-prod
+192.168.30.97 #tap-infra-ansible-ubu-prod
+192.168.30.170 #tap-infra-atlassian-ubu-dev
+192.168.30.158 #tap-infra-office-r7-ubu-dev
+192.168.30.118 #tap-infra-staff-deb-dev
+192.168.30.148 #tap-infra-sync-rmpm-front-ubu-prod
+192.168.30.142 #tap-stand-sync-ubu-dev
+192.168.30.56 #tn-stand-cad-ubu-dev
+192.168.30.238 #vniir-stand-site-centos-dev
+[tap-vms6] 
+192.168.30.228 #(N)rushydro-gs-back-front-redos-clone
+192.168.30.227 #(N)rushydro-gs-db-redos-clone
+192.168.30.127 #nst-gs-back-front-db-redhat-prod
+192.168.30.219 #nst-gs-back-front-db-ubuntu-e2e
+192.168.30.154 #nst-gs-keycloak-ubu-prod
+192.168.31.45 #nst-infra-opensearch-redhat-prod
+192.168.30.85 #ntc-gs-db-redos-dev
+192.168.31.200 #ntc-gs-db-redos-dev-1
+192.168.31.205 #ntc-gs-gc-redos-dev
+192.168.31.141 #ntc-gs-geoserver-redos-dev
+192.168.31.202 #ntc-gs-geoserver-redos-dev-1
+192.168.31.111 #ntc-gs-minio-redos-dev
+192.168.31.199 #ntc-gs-minio-redos-dev-1
+192.168.30.180 #ntc-gs-osm-redos-dev
+192.168.31.141 #ntc-gs-osm-redos-dev-test
+192.168.31.220 #ntc-nst-api-redos-dev
+192.168.30.225 #ntc-nst-api-redos-preprod
+192.168.30.120 #ntc-nst-db-redos-preprod
+192.168.31.137 #ntc-nst-gc-redos-dev
+192.168.30.109 #ntc-nst-gc-redos-preprod
+192.168.31.74 #ntc-nst-geosrv-redos-preprod
+192.168.30.239 #ntc-nst-keycloack-redos-dev
+192.168.30.139 #ntc-nst-minio-redos-preprod
+192.168.30.116 #ntc-nst-open-search-redos-dev
+192.168.30.206 #ntc-nst-open-search-redos-preprod
+192.168.30.128 #ntc-nst-web-redos-dev
+192.168.31.130 #ntc-nst-web-redos-preprod
+192.168.30.52 #ntc-stand-web-redos-e2e
+192.168.30.132 #rushydro-gs-back-front-redos-dev
+192.168.30.125 #rushydro-gs-db-redos-dev
+192.168.30.64 #tap-gs-back-front-db-ubuntu-prod
